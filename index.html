@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropster - Desenvolvedor Web</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Estilo base para o corpo da página */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #E0E0E0; /* Cor de texto clara para bom contraste */
+            overflow-x: hidden; /* Previne scroll horizontal */
+        }
+
+        /* O canvas do gradiente animado */
+        #gradient-canvas {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Coloca o canvas atrás de todo o conteúdo */
+            --gradient-color-1: #1a237e;
+            --gradient-color-2: #3f51b5;
+            --gradient-color-3: #0d47a1;
+            --gradient-color-4: #1565c0;
+        }
+
+        /* Efeito de vidro para os cards e seções */
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animação de entrada suave */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        /* Adiciona um atraso na animação para elementos em sequência */
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        /* Garante que elementos com animação comecem invisíveis */
+        .fade-in-hidden {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+
+    <!-- Canvas para o fundo de gradiente animado -->
+    <canvas id="gradient-canvas" data-transition-in></canvas>
+
+    <!-- Container Principal -->
+    <div class="relative z-10 min-h-screen p-4 sm:p-6 lg:p-8">
+        
+        <!-- Header e Navegação -->
+        <header class="flex justify-between items-center py-4 px-6 rounded-xl glassmorphism">
+            <h1 class="text-xl md:text-2xl font-bold text-white">Dropster</h1>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-300 hover:text-white transition duration-300">Início</a>
+                <a href="#portfolio" class="text-gray-300 hover:text-white transition duration-300">Portfólio</a>
+                <a href="#contato" class="text-gray-300 hover:text-white transition duration-300">Contato</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </header>
+        
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden mt-2 rounded-lg glassmorphism">
+            <a href="#home" class="block text-center py-3 text-gray-300 hover:text-white hover:bg-white/10 transition duration-300">Início</a>
+            <a href="#portfolio" class="block text-center py-3 text-gray-300 hover:text-white hover:bg-white/10 transition duration-300">Portfólio</a>
+            <a href="#contato" class="block text-center py-3 text-gray-300 hover:text-white hover:bg-white/10 transition duration-300">Contato</a>
+        </div>
+
+        <main class="mt-16">
+            <!-- Seção Início (Home) -->
+            <section id="home" class="text-center py-20">
+                <div class="fade-in-hidden fade-in">
+                    <h2 class="text-4xl md:text-6xl font-black text-white leading-tight">Desenvolvedor de Aplicações Web</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">Transformando ideias em aplicações web interativas e de alta performance.</p>
+                    <a href="#portfolio" class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
+                        Veja meus trabalhos
+                    </a>
+                </div>
+            </section>
+
+            <!-- Seção Portfólio -->
+            <section id="portfolio" class="py-20">
+                <div class="fade-in-hidden fade-in delay-1">
+                    <h3 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Meus Projetos</h3>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+                        <!-- Projeto 1 -->
+                        <div class="rounded-2xl glassmorphism p-6 flex flex-col fade-in-hidden fade-in delay-2">
+                            <h4 class="text-2xl font-bold text-white mb-3">Gestor de laboratório de prótese</h4>
+                            <p class="text-gray-300 mb-4 flex-grow">Visual limpo, minimalista e funcional. Simples manuseio e navegação rápida com as melhores ferramentas de programação.</p>
+                            <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+                                <!-- Substitua 'VIDEO_ID_DO_YOUTUBE' pelo ID do seu vídeo -->
+                                <iframe src="./assets/video/Vídeo sem título ‐ Feito com o Clipchamp.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                        <!-- Projeto 2 -->
+                        <div class="rounded-2xl glassmorphism p-6 flex flex-col fade-in-hidden fade-in delay-3">
+                            <h4 class="text-2xl font-bold text-white mb-3">Funções e Recursos</h4>
+                            <p class="text-gray-300 mb-4 flex-grow">Tudo que um gestor precisa para </p>
+                             <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+                                <iframe src="https://www.youtube.com/embed/o-YBDTqX_ZU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        
+                        <!-- Adicione mais projetos aqui -->
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Contato -->
+            <section id="contato" class="py-20">
+                <div class="max-w-xl mx-auto text-center fade-in-hidden fade-in delay-4">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Vamos Conversar?</h3>
+                    <p class="text-gray-300 mb-8">Envie uma mensagem e vamos construir algo incrível juntos.</p>
+                    
+                    <form id="https://formspree.io/f/mvgrylwk" class="rounded-2xl glassmorphism p-8 space-y-6">
+                        <input type="text" id="name" placeholder="Seu Nome" class="w-full bg-white/10 text-white placeholder-gray-400 p-3 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                        <input type="email" id="email" placeholder="Seu E-mail" class="w-full bg-white/10 text-white placeholder-gray-400 p-3 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                        <input type="tel" id="phone" placeholder="Seu Telefone (Opcional)" class="w-full bg-white/10 text-white placeholder-gray-400 p-3 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <textarea id="message" placeholder="Sua Mensagem" rows="5" class="w-full bg-white/10 text-white placeholder-gray-400 p-3 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="text-center py-8 mt-16 text-gray-400">
+            <div class="space-x-6 mb-4">
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-github fa-2x"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-twitter fa-2x"></i></a>
+            </div>
+            <p>&copy; 2025 <i>Dropster</i>₢. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+    
+    <!-- Modal de Confirmação de Envio -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
+        <div class="bg-gray-800 rounded-lg p-8 text-center shadow-2xl transform scale-95 transition-transform duration-300">
+            <h3 class="text-2xl font-bold text-white mb-4">Mensagem Enviada!</h3>
+            <p class="text-gray-300 mb-6">Obrigado por entrar em contato. Retornarei em breve.</p>
+            <button id="close-modal" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-6 rounded-lg">Fechar</button>
+        </div>
+    </div>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // --- Lógica do Gradiente Animado ---
+        const canvas = document.getElementById('gradient-canvas');
+        const ctx = canvas.getContext('2d');
+        let frame = 0;
+
+        // Classe para criar o efeito de partículas no gradiente
+        class GradientParticle {
+            constructor(x, y, size, color) {
+                this.x = x;
+                this.y = y;
+                this.size = size;
+                this.color = color;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        let particles = [];
+        const colors = [
+            getComputedStyle(canvas).getPropertyValue('--gradient-color-1').trim(),
+            getComputedStyle(canvas).getPropertyValue('--gradient-color-2').trim(),
+            getComputedStyle(canvas).getPropertyValue('--gradient-color-3').trim(),
+            getComputedStyle(canvas).getPropertyValue('--gradient-color-4').trim()
+        ];
+        
+        // Redimensiona o canvas e inicializa as partículas
+        function resizeAndInit() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < 50; i++) {
+                particles.push(new GradientParticle(
+                    Math.random() * canvas.width,
+                    Math.random() * canvas.height,
+                    Math.random() * 150 + 50, // Tamanho das partículas
+                    colors[i % colors.length]
+                ));
+            }
+        }
+
+        // Loop de animação
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Desenha um fundo base
+            const bgGradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            bgGradient.addColorStop(0, colors[0]);
+            bgGradient.addColorStop(1, colors[2]);
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Atualiza e desenha as partículas
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            
+            // Efeito de blur para mesclar as cores
+            ctx.filter = 'blur(100px)';
+            ctx.drawImage(canvas, 0, 0);
+            ctx.filter = 'none';
+
+            requestAnimationFrame(animate);
+        }
+
+        resizeAndInit();
+        animate();
+        window.addEventListener('resize', resizeAndInit);
+        
+        // --- Lógica do Menu Mobile ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+     
+        // --- Lógica de Animação ao Rolar (Fade In) ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('fade-in-hidden');
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 }); // A animação começa quando 10% do elemento está visível
+
+        document.querySelectorAll('.fade-in-hidden').forEach(el => {
+            observer.observe(el);
+        });
+
+        // --- Lógica de Scroll Suave ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Fecha o menu mobile ao clicar em um link
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>
