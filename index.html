@@ -78,7 +78,7 @@
         
         <!-- Header e Navegação -->
         <header class="flex justify-between items-center py-4 px-6 rounded-xl glassmorphism">
-            <h1 class="text-xl md:text-2xl font-bold text-white">Dropster</h1>
+            <h1 class="text-xl md:text-2xl font-bold text-white"><i>Dropster</i></h1>
             <nav class="hidden md:flex space-x-8">
                 <a href="#home" class="text-gray-300 hover:text-white transition duration-300">Início</a>
                 <a href="#portfolio" class="text-gray-300 hover:text-white transition duration-300">Portfólio</a>
@@ -103,7 +103,7 @@
                     <h2 class="text-4xl md:text-6xl font-black text-white leading-tight">Desenvolvedor de Aplicações Web</h2>
                     <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">Transformando ideias em aplicações web interativas e de alta performance.</p>
                     <a href="#portfolio" class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
-                        Veja meus trabalhos
+                        Veja meu trabalho
                     </a>
                 </div>
             </section>
@@ -111,7 +111,7 @@
             <!-- Seção Portfólio -->
             <section id="portfolio" class="py-20">
                 <div class="fade-in-hidden fade-in delay-1">
-                    <h3 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Meus Projetos</h3>
+                    <h3 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Meu Projeto</h3>
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
                         <!-- Projeto 1 -->
@@ -127,7 +127,7 @@
                         <!-- Projeto 2 -->
                         <div class="rounded-2xl glassmorphism p-6 flex flex-col fade-in-hidden fade-in delay-3">
                             <h4 class="text-2xl font-bold text-white mb-3">Funções e Recursos</h4>
-                            <p class="text-gray-300 mb-4 flex-grow">Tudo que um gestor precisa para </p>
+                            <p class="text-gray-300 mb-4 flex-grow">tudo que um gestor precisa para otimizar o fluxo de trabalho e aumentar a produtividade.</p>
                              <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
                                 <iframe src="https://www.youtube.com/embed/o-YBDTqX_ZU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
@@ -145,11 +145,15 @@
                     <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Vamos Conversar?</h3>
                     <p class="text-gray-300 mb-8">Envie uma mensagem e vamos construir algo incrível juntos.</p>
                     
-                    <form id="https://formspree.io/f/mvgrylwk" class="rounded-2xl glassmorphism p-8 space-y-6">
-                        <input type="text" id="name" placeholder="Seu Nome" class="w-full bg-white/10 text-white placeholder-gray-400 p-3 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
-                        <input type="email" id="email" placeholder="Seu E-mail" class="w-full bg-white/10 text-white placeholder-gray-400 p-3 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
-                        <input type="tel" id="phone" placeholder="Seu Telefone (Opcional)" class="w-full bg-white/10 text-white placeholder-gray-400 p-3 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        <textarea id="message" placeholder="Sua Mensagem" rows="5" class="w-full bg-white/10 text-white placeholder-gray-400 p-3 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
+                    <!-- FORMULÁRIO CORRIGIDO -->
+                    <!-- Lembre-se de substituir a URL abaixo pela sua URL do Formspree -->
+                    <!-- E de remover o bloco de código Javascript do formulário antigo! -->
+                    <form action="https://formspree.io/f/mvgrylwk" method="POST" class="rounded-2xl glassmorphism p-8 space-y-6">
+                        <input type="text" name="name" placeholder="Seu Nome" class="w-full bg-white/10 text-white placeholder-gray-400 p-3 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                        <!-- O atributo name="_replyto" faz com que o botão "Responder" no seu e-mail funcione corretamente -->
+                        <input type="email" name="email" placeholder="Seu E-mail" class="w-full bg-white/10 text-white placeholder-gray-400 p-3 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                        <input type="tel" name="phone" placeholder="Seu Telefone (Opcional)" class="w-full bg-white/10 text-white placeholder-gray-400 p-3 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <textarea name="message" placeholder="Sua Mensagem" rows="5" class="w-full bg-white/10 text-white placeholder-gray-400 p-3 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
                         <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
                             Enviar Mensagem
                         </button>
@@ -168,16 +172,6 @@
             <p>&copy; 2025 <i>Dropster</i>₢. Todos os direitos reservados.</p>
         </footer>
     </div>
-    
-    <!-- Modal de Confirmação de Envio -->
-    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
-        <div class="bg-gray-800 rounded-lg p-8 text-center shadow-2xl transform scale-95 transition-transform duration-300">
-            <h3 class="text-2xl font-bold text-white mb-4">Mensagem Enviada!</h3>
-            <p class="text-gray-300 mb-6">Obrigado por entrar em contato. Retornarei em breve.</p>
-            <button id="close-modal" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-6 rounded-lg">Fechar</button>
-        </div>
-    </div>
-
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -187,7 +181,6 @@
         const ctx = canvas.getContext('2d');
         let frame = 0;
 
-        // Classe para criar o efeito de partículas no gradiente
         class GradientParticle {
             constructor(x, y, size, color) {
                 this.x = x;
@@ -222,7 +215,6 @@
             getComputedStyle(canvas).getPropertyValue('--gradient-color-4').trim()
         ];
         
-        // Redimensiona o canvas e inicializa as partículas
         function resizeAndInit() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -231,30 +223,26 @@
                 particles.push(new GradientParticle(
                     Math.random() * canvas.width,
                     Math.random() * canvas.height,
-                    Math.random() * 150 + 50, // Tamanho das partículas
+                    Math.random() * 150 + 50,
                     colors[i % colors.length]
                 ));
             }
         }
 
-        // Loop de animação
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
-            // Desenha um fundo base
             const bgGradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
             bgGradient.addColorStop(0, colors[0]);
             bgGradient.addColorStop(1, colors[2]);
             ctx.fillStyle = bgGradient;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             
-            // Atualiza e desenha as partículas
             particles.forEach(p => {
                 p.update();
                 p.draw();
             });
             
-            // Efeito de blur para mesclar as cores
             ctx.filter = 'blur(100px)';
             ctx.drawImage(canvas, 0, 0);
             ctx.filter = 'none';
@@ -272,7 +260,7 @@
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-     
+        
         // --- Lógica de Animação ao Rolar (Fade In) ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -282,7 +270,7 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 }); // A animação começa quando 10% do elemento está visível
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in-hidden').forEach(el => {
             observer.observe(el);
@@ -295,7 +283,6 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-                // Fecha o menu mobile ao clicar em um link
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
                 }
